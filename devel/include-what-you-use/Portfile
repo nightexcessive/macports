@@ -42,4 +42,6 @@ checksums           md5     21d1ba7deb0373ca8dd9735a6f3392ca \
                     sha256  2d2877726c4aed9518cbb37673ffbc2b7da9c239bf8fe29432da35c1c0ec367a \
                     size    541763
 
-configure.args-append -DCMAKE_PREFIX_PATH=${prefix}/libexec/llvm-7.0
+patchfiles          patch-header-search-path.diff
+
+configure.args-append -DCMAKE_PREFIX_PATH=${prefix}/libexec/llvm-7.0 -DLLVM_DIR=${prefix}/libexec/llvm-7.0 -DCLANG_DIR=${prefix}/libexec/llvm-7.0/lib/cmake/clang
