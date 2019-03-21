@@ -1,0 +1,45 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+PortGroup           cmake 1.1
+name                include-what-you-use
+version             0.11
+categories          devel
+maintainers         nomaintainer
+description         ensures that every symbol used in a C++ file has a \
+                    corresponding include directive
+long_description    "Include what you use" means this: for every symbol (type, \
+                    function, variable, or macro) that you use in foo.cc (or \
+                    foo.cpp), either foo.cc or foo.h should include a .h file \
+                    that exports the declaration of that symbol. (Similarly, \
+                    for foo_test.cc, either foo_test.cc or foo.h should do the \
+                    including.) Obviously symbols defined in foo.cc itself are \
+                    excluded from this requirement. This puts us in a state \
+                    where every file includes the headers it needs to declare \
+                    the symbols that it uses. When every file includes what it \
+                    uses, then it is possible to edit any file and remove \
+                    unused headers, without fear of accidentally breaking the \
+                    upwards dependencies of that file. It also becomes easy to \
+                    automatically track and update dependencies in the source \
+                    code.
+homepage            https://include-what-you-use.org
+platforms           darwin
+
+license             LLVM
+
+depends_build       port:cmake \
+                    bin:python3.7:python37 \
+                    port:llvm-7.0
+depends_run         port:llvm-7.0
+
+master_sites        https://include-what-you-use.org/downloads/
+distname            ${name}-${version}
+extract.suffix      .src.tar.gz
+worksrcdir          ${name}
+checksums           md5     21d1ba7deb0373ca8dd9735a6f3392ca \
+                    rmd160  61c49adc174acc2be3319ed10e1eaae6e9b9642b \
+                    sha256  2d2877726c4aed9518cbb37673ffbc2b7da9c239bf8fe29432da35c1c0ec367a \
+                    size    541763
+
+configure.args-append -DCMAKE_PREFIX_PATH=${prefix}/libexec/llvm-7.0
