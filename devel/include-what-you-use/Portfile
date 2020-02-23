@@ -6,7 +6,7 @@ PortGroup           cmake 1.1
 name                include-what-you-use
 version             0.11
 categories          devel
-maintainers         nomaintainer
+maintainers         {@mjohnson9 johnson.computer:michael}
 description         ensures that every symbol used in a C++ file has a \
                     corresponding include directive
 long_description    "Include what you use" means this: for every symbol (type, \

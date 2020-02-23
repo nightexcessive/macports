@@ -5,7 +5,7 @@ PortSystem          1.0
 name                monkeysphere
 version             0.43
 categories          net security
-maintainers         nomaintainer
+maintainers         {@mjohnson9 johnson.computer:michael}
 description         use the OpenPGP web of trust to verify ssh connections
 long_description    SSH key-based authentication is tried-and-true, \
                     but it lacks a true Public Key Infrastructure for \
