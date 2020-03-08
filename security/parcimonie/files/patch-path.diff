@@ -1,0 +1,12 @@
+--- parcimonie.sh.orig	2020-03-08 10:58:29.000000000 -0400
++++ parcimonie.sh	2020-03-08 11:28:39.000000000 -0400
+@@ -5,6 +5,9 @@
+ # terms of the Do What The Fuck You Want To Public License, Version 2,
+ # as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
+ 
++# Add MacPorts directories to PATH so that the script can discover gpg2
++PATH="/opt/local/bin:/opt/local/sbin${PATH:+:${PATH}}"
++
+ if [ -n "$PARCIMONIE_CONF" ]; then
+ 	source "$PARCIMONIE_CONF" || exit 'Bad configuration file.'
+ 	export PARCIMONIE_CONF='' # Children spawned by this script (if any) should not inherit those values

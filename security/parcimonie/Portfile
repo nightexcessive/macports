@@ -1,0 +1,44 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+name                parcimonie
+version             73.551999c
+license             WTFPL
+categories          security net
+maintainers         {@mjohnson9 johnson.computer:michael}
+description         refresh your GPG keyring anonymously
+long_description    parcimonie.sh refreshes individual keys in your \
+                    GnuPG keyring at randomized intervals. Each key \
+                    is refreshed over a unique, single-use Tor circuit.
+homepage            https://github.com/EtiennePerot/parcimonie.sh
+
+platforms           darwin
+supported_archs     noarch
+
+depends_run         port:gnupg2 \
+                    port:tor \
+                    port:torsocks
+
+fetch.type          git
+git.url             https://github.com/EtiennePerot/parcimonie.sh.git
+git.branch          [lindex [split ${version} .] 1]
+
+patchfiles          patch-path.diff \
+                    patch-config-handling.diff \
+                    patch-http-proxy.diff
+
+use_configure       no
+test.run            no
+
+startupitem.create      yes
+startupitem.location    LaunchAgents
+startupitem.name        ${name}
+startupitem.executable  "${prefix}/libexec/parcimonie.sh"
+
+destroot {
+	xinstall -m 755 -d ${destroot}${prefix}/libexec
+	xinstall -m 755 ${workpath}/${worksrcdir}/parcimonie.sh ${destroot}${prefix}/libexec/parcimonie.sh
+}
+
+build {}
