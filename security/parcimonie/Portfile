@@ -3,6 +3,7 @@
 PortSystem          1.0
 PortGroup			github 1.0
 
+github.setup		EtiennePerot parcimonie.sh 551999ca7480079b912b5a07f631b4fc1323ce49
 name                parcimonie
 license             WTFPL
 categories          security net
@@ -20,8 +21,6 @@ depends_run         port:gnupg2 \
                     port:tor \
                     port:torsocks
 
-github.setup		EtiennePerot parcimonie.sh 551999ca7480079b912b5a07f631b4fc1323ce49
-
 patchfiles          patch-path.diff \
                     patch-config-handling.diff \
                     patch-http-proxy.diff
@@ -33,6 +32,10 @@ startupitem.create      yes
 startupitem.location    LaunchAgents
 startupitem.name        ${name}
 startupitem.executable  "${prefix}/libexec/parcimonie.sh"
+
+checksums           rmd160  8733045780739be61155412b8e5cb81e00430e54 \
+                    sha256  042db520c1f12cd89a28b8f8d4b0eb4f6a7379836df8f2bb3a5983b630b258e2 \
+                    size    9262
 
 destroot {
 	xinstall -m 755 -d ${destroot}${prefix}/libexec
