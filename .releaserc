@@ -8,7 +8,7 @@
 			"changelogFile": "CHANGELOG.md",
 		}],
 		["@semantic-release/git", {
-			"assets": ["CHANGELOG.md", "iOS/Info.plist", "iosUnitTests/Info.plist"],
+			"assets": ["CHANGELOG.md"],
 		}],
 	]
 }
