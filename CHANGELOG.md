@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/mjohnson9/macports/compare/v1.0.0...v1.1.0) (2020-03-26)
+
+
+### Features
+
+* **parcimonie:** update Parcimonie to use GitHub PortGroup and copy license and docs ([9eb1263](https://github.com/mjohnson9/macports/commit/9eb12633bf17e5938586b15622fcc3649736f604))
+
 ## 1.0.0 (2020-03-26)
 
 
