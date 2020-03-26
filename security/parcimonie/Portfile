@@ -1,9 +1,9 @@
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
-# $Id$
 
 PortSystem          1.0
+PortGroup			github 1.0
+
 name                parcimonie
-version             73.551999c
 license             WTFPL
 categories          security net
 maintainers         {@mjohnson9 johnson.computer:michael}
@@ -20,9 +20,7 @@ depends_run         port:gnupg2 \
                     port:tor \
                     port:torsocks
 
-fetch.type          git
-git.url             https://github.com/EtiennePerot/parcimonie.sh.git
-git.branch          [lindex [split ${version} .] 1]
+github.setup		EtiennePerot parcimonie.sh 551999ca7480079b912b5a07f631b4fc1323ce49
 
 patchfiles          patch-path.diff \
                     patch-config-handling.diff \
@@ -38,7 +36,11 @@ startupitem.executable  "${prefix}/libexec/parcimonie.sh"
 
 destroot {
 	xinstall -m 755 -d ${destroot}${prefix}/libexec
-	xinstall -m 755 ${workpath}/${worksrcdir}/parcimonie.sh ${destroot}${prefix}/libexec/parcimonie.sh
+	xinstall -m 755 ${worksrcpath}/parcimonie.sh ${destroot}${prefix}/libexec/parcimonie.sh
+
+	xinstall -m 755 -d ${destroot}${prefix}/usr/share/doc/${name}
+	xinstall -m 644 ${worksrcpath}/README.md ${destroot}${prefix}/usr/share/doc/${name}/README.md
+	xinstall -m 644 ${worksrcpath}/LICENSE ${destroot}${prefix}/usr/share/doc/${name}/LICENSE
 }
 
 build {}
