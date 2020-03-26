@@ -1,5 +1,5 @@
 {
-	"repositoryUrl": "https://github.com/mjohnson9/roadie_ios.git",
+	"repositoryUrl": "https://github.com/mjohnson9/macports.git",
 	"preset": "conventionalcommits",
 	"plugins": [
 		"@semantic-release/commit-analyzer",
