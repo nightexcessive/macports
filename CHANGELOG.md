@@ -1,3 +1,10 @@
+### [1.1.1](https://github.com/mjohnson9/macports/compare/v1.1.0...v1.1.1) (2020-03-26)
+
+
+### Bug Fixes
+
+* **parcimonie:** move githubup.setup to the top; add checksums ([2826419](https://github.com/mjohnson9/macports/commit/282641905fa1311af0b9f537e892d85ad56af1ba))
+
 ## [1.1.0](https://github.com/mjohnson9/macports/compare/v1.0.0...v1.1.0) (2020-03-26)
 
 
