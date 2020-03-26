@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           cmake 1.1
 
 name                include-what-you-use
-version             0.11
+version             0.13
 categories          devel
 maintainers         {@mjohnson9 johnson.computer:michael}
 description         ensures that every symbol used in a C++ file has a \
@@ -30,17 +30,16 @@ license             LLVM
 
 depends_build       port:cmake \
                     bin:python3.7:python37 \
-                    port:llvm-7.0
-depends_run         port:llvm-7.0
+                    port:llvm-9.0
+depends_run         port:llvm-9.0
 
 master_sites        ${homepage}/downloads/
 distname            ${name}-${version}
 extract.suffix      .src.tar.gz
 worksrcdir          ${name}
-checksums           md5     21d1ba7deb0373ca8dd9735a6f3392ca \
-                    rmd160  61c49adc174acc2be3319ed10e1eaae6e9b9642b \
-                    sha256  2d2877726c4aed9518cbb37673ffbc2b7da9c239bf8fe29432da35c1c0ec367a \
-                    size    541763
+checksums           rmd160  e42ab3337a935b22211cc68f9f728f152b953439 \
+                    sha256  49294270aa64e8c04182369212cd919f3b3e0e47601b1f935f038c761c265bc9 \
+                    size    589267
 
 livecheck.type      regex
 livecheck.url       ${homepage}/downloads/
@@ -48,4 +47,4 @@ livecheck.regex     "<h4>include-what-you-use (\\d+\\.\\d+) \\(*"
 
 patchfiles          patch-header-search-path.diff
 
-configure.args-append -DCMAKE_PREFIX_PATH=${prefix}/libexec/llvm-7.0 -DLLVM_DIR=${prefix}/libexec/llvm-7.0 -DCLANG_DIR=${prefix}/libexec/llvm-7.0/lib/cmake/clang
+configure.args-append -DCMAKE_PREFIX_PATH=${prefix}/libexec/llvm-9.0 -DLLVM_DIR=${prefix}/libexec/llvm-9.0 -DCLANG_DIR=${prefix}/libexec/llvm-9.0/lib/cmake/clang
