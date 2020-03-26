@@ -1,0 +1,14 @@
+{
+	"repositoryUrl": "https://github.com/mjohnson9/roadie_ios.git",
+	"preset": "conventionalcommits",
+	"plugins": [
+		"@semantic-release/commit-analyzer",
+		"@semantic-release/release-notes-generator",
+		["@semantic-release/changelog", {
+			"changelogFile": "CHANGELOG.md",
+		}],
+		["@semantic-release/git", {
+			"assets": ["CHANGELOG.md", "iOS/Info.plist", "iosUnitTests/Info.plist"],
+		}],
+	]
+}
