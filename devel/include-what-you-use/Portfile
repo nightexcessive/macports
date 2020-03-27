@@ -29,6 +29,7 @@ platforms           darwin
 license             LLVM
 
 depends_build       port:cmake \
+                    port:clang-9.0 \
                     bin:python3.7:python37 \
                     port:llvm-9.0
 depends_run         port:llvm-9.0
