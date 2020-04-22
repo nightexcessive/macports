@@ -1,3 +1,15 @@
+## [1.2.0](https://github.com/mjohnson9/macports/compare/v1.1.1...v1.2.0) (2020-04-22)
+
+
+### Features
+
+* **py-ovhcli:** added py-ovh and py-ovhcli ([bf7b440](https://github.com/mjohnson9/macports/commit/bf7b440519d50923c3973a27623d9750395f52e4))
+
+
+### Bug Fixes
+
+* **include-what-you-use:** add clang-9.0 as a build requirement of include-what-you-use ([e2ea075](https://github.com/mjohnson9/macports/commit/e2ea075bfdd9d9febeb066472060f07b0c0a5683))
+
 ### [1.1.1](https://github.com/mjohnson9/macports/compare/v1.1.0...v1.1.1) (2020-03-26)
 
 
