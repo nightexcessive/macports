@@ -1,0 +1,36 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           python 1.0
+
+name                py-ovhcli
+version             0.0.1
+revision            1
+
+platforms           darwin
+supported_archs     noarch
+license             BSD
+maintainers         {@mjohnson9 johnson.gg:michael}
+
+description         OVH Command Line Interface
+
+homepage            https://github.com/ovh/ovh-cli
+
+checksums           rmd160  979df14f880795e72ec6b21d45ad8d594e7f996f \
+                    sha256  38b974af8a20c3f5498b2a29219502c938b4d7c2bf2b2497a1e5fb31f6924460 \
+                    size    19441
+
+python.versions     27 34 35 36 37 38
+
+if {${name} ne ${subport}} {
+    depends_build-append \
+                    port:py${python.version}-mock
+
+    depends_lib-append \
+                  port:py${python.version}-ovh \
+                  port:py${python.version}-click \
+                  port:py${python.version}-colorama \
+                  port:py${python.version}-terminaltables
+
+    test.run        yes
+}

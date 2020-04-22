@@ -1,0 +1,42 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           python 1.0
+
+name                py-ovh
+version             0.5.0
+revision            1
+
+platforms           darwin
+supported_archs     noarch
+license             BSD
+maintainers         {@mjohnson9 johnson.gg:michael}
+
+description         Lightweight wrapper around OVH’s APIs
+long_description    Lightweight wrapper around OVH’s APIs. Handles all the \
+                    hard work including credential creation and requests \
+                    signing.
+
+homepage            https://api.ovh.com
+
+checksums           rmd160  7acfcedd8287943ae0c0396d5793b82df6a93cc2 \
+                    sha256  f74d190c4bff0953d76124cb8ed319a8a999138720e42957f0db481ef4746ae8 \
+                    size    553134
+
+python.versions     27 34 35 36 37 38
+
+if {${name} ne ${subport}} {
+    depends_build-append \
+                    port:py${python.version}-coverage \
+                    port:py${python.version}-mock \
+                    port:py${python.version}-nose \
+                    port:py${python.version}-setuptools \
+                    port:py${python.version}-sphinx \
+                    port:py${python.version}-wheel
+
+    test.run        yes
+
+    livecheck.type  regex
+    livecheck.url https://github.com/ovh/python-ovh/tags
+    livecheck.regex archive\\/v(\[^"]+)\\.tar\\.gz
+}
